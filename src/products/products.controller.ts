@@ -27,7 +27,8 @@ export class ProductsController {
 
   //@Get()
   @MessagePattern({ cmd: 'find-all-products' })
-  findAll(@Query() paginationDto: PaginationDto) {
+  findAll(@Payload() paginationDto: PaginationDto) {
+    console.log('paginationDto', paginationDto);
     return this.productsService.findAll(paginationDto);
   }
 
